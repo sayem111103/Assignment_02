@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Work Sans', sans-serif;
+}
+
+/*------------
+ nav css start 
+ --------------*/ 
+header{
+    background-color: rgba(255, 144, 14, 0.1);
+ }
+#navbar {
+    width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+#navbar h1 a{
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 45px;
+    color: #131313;
+}
+
+#navbar ul {
+    display: flex;
+    list-style-type: none;
+}
+
+#navbar ul li {
+    padding: 0 15px;
+}
+
+#navbar ul li a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    color: #424242;
+}
+
+
+/*---------------
+ banner css start 
+-----------------*/
+#banner {
+    padding-top: 116px;
+    padding-bottom: 45px;
+    width: 1140px;
+    margin: 0 auto;
+}
+
+#banner .ban-item {
+    text-align: center;
+}
+
+#banner .ban-item h3 {
+    font-weight: 700;
+    font-size: 64px;
+    color: #131313;
+}
+
+#banner .ban-item h3 span {
+    display: block;
+}
+
+#banner .ban-item p {
+    font-weight: 400;
+    font-size: 16px;
+    padding: 32px 215px;
+    color: #727272;
+    line-height: 26px;
+}
+
+#banner .ban-item button {
+    padding: 20px 25px;
+    background-color: #FF900E;
+    font-weight: 600;
+    font-size: 20px;
+    color: #FFFFFF;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 50px;
+}
+
+#banner img{
+   width: 100%;
+}
