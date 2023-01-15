@@ -1,3 +1,215 @@
 @media screen and (max-width: 576px) {
-    
+    /*------------------
+      common css start
+     -------------------*/
+    .container {
+        width: unset;
+        margin: 0 auto;
+    }
+
+    .headers {
+        text-align: center;
+    }
+
+    .headers h3 {
+        font-size: 35px;
+    }
+
+    .headers p {
+        font-size: 13px;
+        line-height: 24px;
+        padding-top: 20px;
+    }
+
+    /*------------------
+      navbar css start
+     -------------------*/
+    #navbar>.container {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #navbar h1 a {
+        font-size: 40px;
+    }
+
+    #navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #navbar ul li {
+        padding: 10px 0px;
+    }
+
+    /*------------------
+      banner css start
+     -------------------*/
+    #banner {
+        padding-top: 30px;
+    }
+
+    #banner .ban-item h3 {
+        font-size: 30px;
+    }
+
+    #banner .ban-item p {
+        font-size: 13px;
+        padding: 15px 0px;
+        line-height: 24px;
+    }
+
+    #banner .ban-item button {
+        padding: 15px 20px;
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+
+    /*------------------
+      feature css start
+     -------------------*/
+    #features {
+        padding-top: 40px;
+        padding-bottom: 30px;
+    }
+
+    .feature_main {
+        align-items: center;
+        margin-bottom: 30px;
+        flex-direction: column;
+    }
+
+    .feature_item1 {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .feature_item2 {
+        width: unset;
+        text-align: center;
+    }
+
+    .feature_item2 button {
+        padding: 15px 20px;
+        font-size: 15px;
+        margin-bottom: 50px;
+        margin-top: 15px;
+    }
+
+    .feature_main2 {
+        flex-direction: column;
+    }
+
+    .feature_main2 .feature_item3 {
+        width: unset;
+    }
+
+    .feature-text {
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .feature_main2 .feature_item3 .headers p {
+        margin-bottom: 60px;
+    }
+
+    .feature_item4 {
+        width: unset;
+        text-align: center;
+    }
+
+    .feature_item4 img {
+        width: 100%;
+        height: unset;
+    }
+
+    .feature_item4 button {
+        padding: 15px 25px;
+        font-size: 30px;
+        margin-top: -58px;
+        margin-left: 0;
+    }
+
+    .feature_item4 button span {
+        font-size: 15px;
+    }
+
+    /*------------------
+      facts css start
+     -------------------*/
+    #facts {
+        padding-bottom: 80px;
+    }
+
+    #facts .headers {
+        width: unset;
+        margin-bottom: 38px;
+    }
+
+    .fact_main {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 15px;
+    }
+
+    /*------------------
+      sponsors css start
+     -------------------*/
+    #sponsors .headers {
+        width: unset;
+    }
+
+    .sponsors_main {
+        align-items: center;
+        margin-top: 25px;
+        flex-direction: column;
+        row-gap: 20px;
+    }
+
+    #sponsors {
+        padding-bottom: 50px;
+    }
+
+     /*------------------
+      footer css start
+     -------------------*/
+    #footer_main {
+        padding: 50px 0;
+    }
+
+    .footer_item {
+        row-gap: 80px;
+        flex-direction: column;
+    }
+
+    .connect {
+        width: unset;
+        text-align: center;
+    }
+
+    .message {
+        text-align: center;
+    }
+
+    .message form input[type="text"],
+    input[type="email"] {
+        width: 90%;
+    }
+
+    .message form textarea {
+        width: 90%;
+    }
+
+    #copyright p {
+        font-size: 16px;
+    }
+
+    .message form input[type="submit"] {
+        padding: 15px 30px;
+        font-size: 15px;
+    }
+
 }

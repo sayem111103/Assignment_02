@@ -179,9 +179,6 @@ header {
 }
 
 .feature_main2 .feature_item3 .headers h3 {
-    font-weight: 700;
-    font-size: 45px;
-    color: #131313;
     padding-right: 15px;
     padding-left: 20px;
     border-left: 5px solid #FF900E;
@@ -403,6 +400,7 @@ input[type="email"] {
     font-weight: 400;
     resize: none;
     margin-bottom: 20px;
+    color: #727272;
 }
 
 .message form textarea:focus-visible {
