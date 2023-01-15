@@ -1,27 +1,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+/*---------------
+ common css start 
+ ----------------*/
 * {
     margin: 0;
     padding: 0;
     font-family: 'Work Sans', sans-serif;
 }
 
-/*------------
- nav css start 
- --------------*/ 
-header{
-    background-color: rgba(255, 144, 14, 0.1);
- }
-#navbar {
+.container {
     width: 1140px;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+}
+
+.headers h3 {
+    font-weight: 700;
+    font-size: 45px;
+    color: #131313;
+}
+
+.headers p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 26px;
+    color: #727272;
+    padding-top: 25px;
+}
+
+/*------------
+ nav css start 
+ --------------*/
+header {
+    background-color: rgba(255, 144, 14, 0.1);
+}
+
+#navbar {
     padding: 15px 0;
 }
 
-#navbar h1 a{
+#navbar>.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#navbar h1 a {
     text-decoration: none;
     font-weight: 700;
     font-size: 45px;
@@ -51,8 +75,6 @@ header{
 #banner {
     padding-top: 116px;
     padding-bottom: 45px;
-    width: 1140px;
-    margin: 0 auto;
 }
 
 #banner .ban-item {
@@ -72,7 +94,7 @@ header{
 #banner .ban-item p {
     font-weight: 400;
     font-size: 16px;
-    padding: 32px 215px;
+    padding: 32px 150px;
     color: #727272;
     line-height: 26px;
 }
@@ -89,6 +111,327 @@ header{
     margin-bottom: 50px;
 }
 
-#banner img{
-   width: 100%;
+#banner img {
+    width: 100%;
+}
+
+/*-----------------
+ features css start 
+-------------------*/
+#features {
+    padding-top: 85px;
+    padding-bottom: 130px;
+}
+
+.feature_main {
+    display: flex;
+    column-gap: 73px;
+    align-items: center;
+    margin-bottom: 130px;
+}
+
+.feature_item1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.feature_item1 .feature_img img {
+    width: 100%;
+}
+
+.feature_item2 {
+    width: 537px;
+}
+
+.quick_color {
+    color: #727272;
+}
+
+.feature_color {
+    color: #FF900E;
+}
+
+.feature_item2 button {
+    padding: 20px 25px;
+    background-color: #FF900E;
+    font-weight: 600;
+    font-size: 20px;
+    color: #FFFFFF;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+
+.feature_main2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.feature_main2 .feature_item3 {
+    width: 508px;
+}
+
+.feature_main2 .feature_item3 .headers {
+    margin-bottom: 30px;
+}
+
+.feature_main2 .feature_item3 .headers h3 {
+    font-weight: 700;
+    font-size: 45px;
+    color: #131313;
+    padding-right: 15px;
+    padding-left: 20px;
+    border-left: 5px solid #FF900E;
+}
+
+.feature-text {
+    width: 100%;
+    box-shadow: 0 0 19px rgba(66, 66, 66, 0.2);
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+.feature-text h4 {
+    font-weight: 600;
+    font-size: 20px;
+    color: #131313;
+    padding-bottom: 10px;
+}
+
+.feature-text p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: #727272;
+}
+
+.feature_item4 {
+    width: 500px;
+}
+
+.feature_item4 img {
+    width: 100%;
+    height: 80%;
+}
+
+.feature_item4 button {
+    padding: 46px 42px;
+    font-weight: 700;
+    font-size: 65px;
+    color: #FFFFFF;
+    background-color: #FF900E;
+    border-radius: 8px;
+    border: none;
+    margin-top: -80px;
+    margin-left: -50px;
+    cursor: pointer;
+}
+
+.feature_item4 button span {
+    display: block;
+    font-weight: 500;
+    font-size: 25px;
+}
+
+/*-------------
+ fact css start 
+----------------*/
+#facts {
+    padding-bottom: 180px;
+}
+
+#facts .headers {
+    width: 500px;
+    margin-bottom: 100px;
+}
+
+#facts .headers p {
+    padding-top: 20px;
+}
+
+.fact_main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fact_main .fact_item {
+    width: 240px;
+    padding-top: 45px;
+    padding-bottom: 60px;
+    text-align: center;
+    transition: all linear .3s;
+}
+
+.fact_main a {
+    text-decoration: none;
+    border: 1px solid #FF900E;
+    border-radius: 8px;
+}
+
+.fact_main a:hover .fact_item {
+    transform: scale(1.2);
+}
+
+.fact_main .fact_item img {
+    padding-bottom: 10px;
+}
+
+.fact_main .fact_item h4 {
+    padding-bottom: 10px;
+    font-weight: 600;
+    font-size: 45px;
+    color: #424242;
+}
+
+.fact_main .fact_item p {
+    font-weight: 600;
+    font-size: 16px;
+    color: #727272;
+}
+
+
+/*-----------------
+ sponsors css start 
+-------------------*/
+#sponsors {
+    padding-bottom: 130px;
+}
+
+#sponsors .headers {
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    padding-right: 2px;
+}
+
+#sponsors .headers p {
+    padding-top: 20px;
+}
+
+.sponsors_main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.sponsors_main .sponsors_img {
+    background-color: #FFFFFF;
+}
+
+.sponsors_main .sponsors_img img {
+    mix-blend-mode: luminosity;
+}
+
+/*----------------
+ footer css start
+ -----------------*/
+#footer_main {
+    background-color: rgba(128, 128, 128, 0.1);
+    padding: 100px 0;
+}
+
+.footer_item {
+    display: flex;
+    gap: 117px;
+}
+
+.connect {
+    width: 550px;
+}
+
+.connect h3 {
+    font-weight: 700;
+    font-size: 45px;
+    color: #131313;
+    padding-bottom: 20px;
+}
+
+.connect p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    color: #727272;
+    padding-bottom: 30px;
+}
+
+.connect a {
+    margin-right: 20px;
+}
+
+.message h3 {
+    font-weight: 700;
+    font-size: 45px;
+    color: #131313;
+    padding-bottom: 20px;
+}
+
+.message form input[type="text"],
+input[type="email"] {
+    background: #FFFFFF;
+    border-radius: 5px;
+    width: 100%;
+    padding-top: 18px;
+    padding-left: 18px;
+    padding-bottom: 18px;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: #727272;
+}
+
+.message form input::placeholder {
+    color: #727272;
+}
+
+.message form input:focus-visible {
+    outline: none;
+}
+
+.message form textarea {
+    width: 100%;
+    border: none;
+    padding-top: 18px;
+    border-radius: 5px;
+    padding-left: 18px;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    resize: none;
+    margin-bottom: 20px;
+}
+
+.message form textarea:focus-visible {
+    outline: none;
+}
+
+.message form input[type="submit"] {
+    padding: 18px 38px;
+    background-color: #FF900E;
+    color: #FFFFFF;
+    border: none;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/*------------------
+ copyright css start
+ -------------------*/
+#copyright {
+    padding: 38px 0;
+    text-align: center;
+    background-color: #FFF4E7;
+}
+
+#copyright p {
+    font-weight: 400;
+    font-size: 18px;
+    color: #424242;
 }
