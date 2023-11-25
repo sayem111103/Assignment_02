@@ -58,8 +58,41 @@ const deleteUserInDB = async (id: string) => {
 
 const createOrderIntoDB = async (id: string, data: TuserOrder) => {
   if (await User.isUserExists(id)) {
-    const query = { userId: id };
-    const result = await User.updateOne(query, {$push: {orders: data}}) 
+    const query = { userId: id }
+    const result = await User.updateOne(query, { $push: { orders: data } })
+    return result
+  }
+  throw new Error('User Not Exist!')
+}
+
+const getOrderFromDB = async (id: string) => {
+  if (await User.isUserExists(id)) {
+    const result = await User.findOne({ userId: id }, { orders: 1 })
+    return result
+  }
+  throw new Error('User Not Exist!')
+}
+
+const getOrderTotalPriceFromDB = async (id: string) => {
+  if (await User.isUserExists(id)) {
+    const result = await User.aggregate([
+      { $match: { userId: id } },
+      {
+        $project: {
+          totalPrice: {
+            $sum: {
+              $map: {
+                input: '$orders',
+                as: 'totalOrder',
+                in: {
+                  $multiply: ['$$totalOrder.price', '$$totalOrder.quantity'],
+                },
+              },
+            },
+          },
+        },
+      },
+    ])
     return result
   }
   throw new Error('User Not Exist!')
@@ -71,5 +104,7 @@ export const userServices = {
   getSingleUserFromDB,
   updateUserInDB,
   deleteUserInDB,
-  createOrderIntoDB
+  createOrderIntoDB,
+  getOrderFromDB,
+  getOrderTotalPriceFromDB,
 }

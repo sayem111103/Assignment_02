@@ -142,6 +142,50 @@ const createOrder = async (req: Request, res: Response) => {
   }
 }
 
+const getOrder = async (req: Request, res: Response) => {
+  try {
+    const id = req.params.userId
+    const result = await userServices.getOrderFromDB(id)
+    res.status(200).send({
+      success: true,
+      message: 'User fetched successfully!',
+      data: result,
+    })
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    res.status(500).send({
+      success: false,
+      message: error.message || 'something went wrong',
+      error: {
+        code: 404,
+        description: error,
+      },
+    })
+  }
+}
+
+const getOrderTotalPrice = async (req: Request, res: Response) => {
+  try {
+    const id = req.params.userId
+    const result = await userServices.getOrderTotalPriceFromDB(id)
+    res.status(200).send({
+      success: true,
+      message: 'User fetched successfully!',
+      data: result,
+    })
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    res.status(500).send({
+      success: false,
+      message: error.message || 'something went wrong',
+      error: {
+        code: 404,
+        description: error,
+      },
+    })
+  }
+}
+
 export const userController = {
   createUser,
   getAllUser,
@@ -149,4 +193,6 @@ export const userController = {
   updateUser,
   deleteUser,
   createOrder,
+  getOrder,
+  getOrderTotalPrice
 }
