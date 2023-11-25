@@ -1,6 +1,7 @@
 import { Request, Response } from 'express'
 import { userServices } from './user.service'
 import {
+  UserOrderValidationSchema,
   UserUpdateValidationSchema,
   UserValidationSchema,
 } from './user.validation'
@@ -97,11 +98,35 @@ const updateUser = async (req: Request, res: Response) => {
 
 const deleteUser = async (req: Request, res: Response) => {
   try {
-    const id = req.params.id;
+    const id = req.params.id
     const result = await userServices.deleteUserInDB(id)
     res.status(200).send({
       success: true,
       message: 'User deleted successfully!',
+      data: result,
+    })
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    res.status(500).send({
+      success: false,
+      message: error.message || 'something went wrong',
+      error: {
+        code: 404,
+        description: error,
+      },
+    })
+  }
+}
+
+const createOrder = async (req: Request, res: Response) => {
+  try {
+    const id = req.params.userId
+    const { order } = req.body
+    const validateOrder = UserOrderValidationSchema.parse(order)
+    const result = await userServices.createOrderIntoDB(id, validateOrder)
+    res.status(200).send({
+      success: true,
+      message: 'Order created successfully!',
       data: result,
     })
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -122,5 +147,6 @@ export const userController = {
   getAllUser,
   getSingleUser,
   updateUser,
-  deleteUser
+  deleteUser,
+  createOrder,
 }

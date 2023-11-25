@@ -1,5 +1,5 @@
 import { User } from '../user.model'
-import { TUser } from './user.interface'
+import { TUser, TuserOrder } from './user.interface'
 
 const createUserIntoDB = async (data: TUser) => {
   if (await User.isUserExists(data?.userId)) {
@@ -56,10 +56,20 @@ const deleteUserInDB = async (id: string) => {
   throw new Error('User Not Exist!')
 }
 
+const createOrderIntoDB = async (id: string, data: TuserOrder) => {
+  if (await User.isUserExists(id)) {
+    const query = { userId: id };
+    const result = await User.updateOne(query, {$push: {orders: data}}) 
+    return result
+  }
+  throw new Error('User Not Exist!')
+}
+
 export const userServices = {
   createUserIntoDB,
   getAllUserFromDB,
   getSingleUserFromDB,
   updateUserInDB,
   deleteUserInDB,
+  createOrderIntoDB
 }
