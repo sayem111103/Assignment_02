@@ -47,9 +47,19 @@ const updateUserInDB = async (id: string, data: any) => {
   throw new Error('User Not Exist!')
 }
 
+const deleteUserInDB = async (id: string) => {
+  if (await User.isUserExists(id)) {
+    const query = { userId: id }
+    const result = await User.updateOne(query, { isDeleted: true })
+    return result
+  }
+  throw new Error('User Not Exist!')
+}
+
 export const userServices = {
   createUserIntoDB,
   getAllUserFromDB,
   getSingleUserFromDB,
   updateUserInDB,
+  deleteUserInDB,
 }
