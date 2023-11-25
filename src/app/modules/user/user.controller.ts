@@ -30,7 +30,7 @@ const getAllUser = async (req: Request, res: Response) => {
     const result = await userServices.getAllUserFromDB()
     res.status(200).send({
       success: true,
-      message: 'All users retrieved successfully!',
+      message: 'Users fetched successfully!',
       data: result,
     })
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -52,7 +52,7 @@ const getSingleUser = async (req: Request, res: Response) => {
     const result = await userServices.getSingleUserFromDB(id)
     res.status(200).send({
       success: true,
-      message: 'User retrieved successfully!',
+      message: 'User fetched successfully!',
       data: result,
     })
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

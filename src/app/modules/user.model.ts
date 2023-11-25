@@ -5,6 +5,7 @@ import {
   TuserAddress,
   TuserName,
   TuserOrder,
+  UserModel,
 } from './user/user.interface'
 import { config } from '../config/config'
 
@@ -25,7 +26,7 @@ const TuserOrderSchema = new Schema<TuserOrder>({
   quantity: { type: Number, required: [true, 'Quantity is Required'] },
 })
 
-const userSchema = new Schema<TUser>({
+const userSchema = new Schema<TUser, UserModel>({
   userId: {
     type: String,
     required: [true, 'User Id is Required'],
@@ -57,9 +58,13 @@ userSchema.pre('save', async function (next) {
   next()
 })
 
-userSchema.post('save', function (doc,next) {
-  doc.password = '';
+userSchema.post('save', function (doc, next) {
+  doc.password = ''
   next()
 })
 
-export const User = model<TUser>('User', userSchema)
+userSchema.statics.isUserExists = async function (userId: string) {
+  const existingUser = await User.findOne({ userId })
+  return existingUser
+}
+export const User = model<TUser, UserModel>('User', userSchema)
