@@ -1,6 +1,9 @@
 import { Request, Response } from 'express'
 import { userServices } from './user.service'
-import { UserValidationSchema } from './user.validation'
+import {
+  UserUpdateValidationSchema,
+  UserValidationSchema,
+} from './user.validation'
 
 const createUser = async (req: Request, res: Response) => {
   try {
@@ -16,7 +19,7 @@ const createUser = async (req: Request, res: Response) => {
   } catch (error: any) {
     res.status(500).send({
       success: false,
-      message: 'something went wrong',
+      message: error.message || 'something went wrong',
       error: {
         code: 404,
         description: error,
@@ -37,7 +40,7 @@ const getAllUser = async (req: Request, res: Response) => {
   } catch (error: any) {
     res.status(500).send({
       success: false,
-      message: 'something went wrong',
+      message: error.message || 'something went wrong',
       error: {
         code: 404,
         description: error,
@@ -48,7 +51,7 @@ const getAllUser = async (req: Request, res: Response) => {
 
 const getSingleUser = async (req: Request, res: Response) => {
   try {
-    const id = req.params.id;
+    const id = req.params.id
     const result = await userServices.getSingleUserFromDB(id)
     res.status(200).send({
       success: true,
@@ -59,7 +62,31 @@ const getSingleUser = async (req: Request, res: Response) => {
   } catch (error: any) {
     res.status(500).send({
       success: false,
-      message: 'something went wrong',
+      message: error.message || 'something went wrong',
+      error: {
+        code: 404,
+        description: error,
+      },
+    })
+  }
+}
+
+const updateUser = async (req: Request, res: Response) => {
+  try {
+    const id = req.params.id
+    const { user } = req.body
+    const validateUser = UserUpdateValidationSchema.parse(user)
+    const result = await userServices.updateUserInDB(id, validateUser)
+    res.status(200).send({
+      success: true,
+      message: 'User Updated successfully!',
+      data: result,
+    })
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    res.status(500).send({
+      success: false,
+      message: error.message || 'something went wrong',
       error: {
         code: 404,
         description: error,
@@ -71,5 +98,6 @@ const getSingleUser = async (req: Request, res: Response) => {
 export const userController = {
   createUser,
   getAllUser,
-  getSingleUser
+  getSingleUser,
+  updateUser,
 }
