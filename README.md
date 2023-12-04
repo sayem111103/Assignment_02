@@ -17,7 +17,6 @@
 **Endpoint : POST /api/users**
 
 **{
-    "user": {
         "userId": "123456789898",
         "username": "john_doe",
         "password": "hashed_password",
@@ -38,7 +37,6 @@
             "city": "Cityville",
             "country": "Countryland"
         }
-    }
 }**
 
 

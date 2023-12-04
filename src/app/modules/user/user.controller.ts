@@ -8,7 +8,7 @@ import {
 
 const createUser = async (req: Request, res: Response) => {
   try {
-    const { user } = req.body
+    const user = req.body
     const validateUser = UserValidationSchema.parse(user)
     const result = await userServices.createUserIntoDB(validateUser)
     res.status(200).send({
@@ -75,7 +75,7 @@ const getSingleUser = async (req: Request, res: Response) => {
 const updateUser = async (req: Request, res: Response) => {
   try {
     const id = req.params.id
-    const { user } = req.body
+    const user = req.body
     const validateUser = UserUpdateValidationSchema.parse(user)
     const result = await userServices.updateUserInDB(id, validateUser)
     res.status(200).send({
@@ -121,7 +121,7 @@ const deleteUser = async (req: Request, res: Response) => {
 const createOrder = async (req: Request, res: Response) => {
   try {
     const id = req.params.userId
-    const { order } = req.body
+    const order = req.body
     const validateOrder = UserOrderValidationSchema.parse(order)
     const result = await userServices.createOrderIntoDB(id, validateOrder)
     res.status(200).send({

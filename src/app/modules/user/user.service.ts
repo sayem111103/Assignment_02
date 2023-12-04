@@ -12,7 +12,9 @@ const createUserIntoDB = async (data: TUser) => {
 const getAllUserFromDB = async () => {
   const result = await User.find(
     {},
-    { username: 1, fullName: 1, age: 1, email: 1, address: 1 },
+    {
+      password: 0, isDeleted: 0, _id: 0
+    },
   )
   return result
 }
