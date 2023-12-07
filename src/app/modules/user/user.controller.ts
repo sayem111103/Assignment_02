@@ -52,8 +52,8 @@ const getAllUser = async (req: Request, res: Response) => {
 
 const getSingleUser = async (req: Request, res: Response) => {
   try {
-    const id = req.params.id
-    const result = await userServices.getSingleUserFromDB(id)
+    const id = req.params.id;
+    const result = await userServices.getSingleUserFromDB(parseInt(id))
     res.status(200).send({
       success: true,
       message: 'User fetched successfully!',
@@ -77,7 +77,7 @@ const updateUser = async (req: Request, res: Response) => {
     const id = req.params.id
     const user = req.body
     const validateUser = UserUpdateValidationSchema.parse(user)
-    const result = await userServices.updateUserInDB(id, validateUser)
+    const result = await userServices.updateUserInDB(parseInt(id), validateUser)
     res.status(200).send({
       success: true,
       message: 'User Updated successfully!',
@@ -99,7 +99,7 @@ const updateUser = async (req: Request, res: Response) => {
 const deleteUser = async (req: Request, res: Response) => {
   try {
     const id = req.params.id
-    const result = await userServices.deleteUserInDB(id)
+    const result = await userServices.deleteUserInDB(parseInt(id))
     res.status(200).send({
       success: true,
       message: 'User deleted successfully!',
@@ -123,7 +123,7 @@ const createOrder = async (req: Request, res: Response) => {
     const id = req.params.userId
     const order = req.body
     const validateOrder = UserOrderValidationSchema.parse(order)
-    const result = await userServices.createOrderIntoDB(id, validateOrder)
+    const result = await userServices.createOrderIntoDB(parseInt(id), validateOrder)
     res.status(200).send({
       success: true,
       message: 'Order created successfully!',
@@ -145,7 +145,7 @@ const createOrder = async (req: Request, res: Response) => {
 const getOrder = async (req: Request, res: Response) => {
   try {
     const id = req.params.userId
-    const result = await userServices.getOrderFromDB(id)
+    const result = await userServices.getOrderFromDB(parseInt(id))
     res.status(200).send({
       success: true,
       message: 'User fetched successfully!',
@@ -167,7 +167,7 @@ const getOrder = async (req: Request, res: Response) => {
 const getOrderTotalPrice = async (req: Request, res: Response) => {
   try {
     const id = req.params.userId
-    const result = await userServices.getOrderTotalPriceFromDB(id)
+    const result = await userServices.getOrderTotalPriceFromDB(parseInt(id))
     res.status(200).send({
       success: true,
       message: 'User fetched successfully!',

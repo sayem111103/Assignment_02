@@ -28,7 +28,7 @@ const TuserOrderSchema = new Schema<TuserOrder>({
 
 const userSchema = new Schema<TUser, UserModel>({
   userId: {
-    type: String,
+    type: Number,
     required: [true, 'User Id is Required'],
     unique: true,
   },
@@ -73,7 +73,7 @@ userSchema.pre('findOne', function (next) {
   next()
 })
 
-userSchema.statics.isUserExists = async function (userId: string) {
+userSchema.statics.isUserExists = async function (userId: number) {
   const existingUser = await User.findOne({ userId })
   return existingUser
 }

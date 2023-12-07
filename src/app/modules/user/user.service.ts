@@ -19,7 +19,7 @@ const getAllUserFromDB = async () => {
   return result
 }
 
-const getSingleUserFromDB = async (id: string) => {
+const getSingleUserFromDB = async (id: number) => {
   if (await User.isUserExists(id)) {
     const result = await User.findOne(
       { userId: id },
@@ -31,7 +31,7 @@ const getSingleUserFromDB = async (id: string) => {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const updateUserInDB = async (id: string, data: any) => {
+const updateUserInDB = async (id: number, data: any) => {
   if (await User.isUserExists(id)) {
     const query = { userId: id }
     const update = {
@@ -49,7 +49,7 @@ const updateUserInDB = async (id: string, data: any) => {
   throw new Error('User Not Exist!')
 }
 
-const deleteUserInDB = async (id: string) => {
+const deleteUserInDB = async (id: number) => {
   if (await User.isUserExists(id)) {
     const query = { userId: id }
     const result = await User.updateOne(query, { isDeleted: true })
@@ -58,7 +58,7 @@ const deleteUserInDB = async (id: string) => {
   throw new Error('User Not Exist!')
 }
 
-const createOrderIntoDB = async (id: string, data: TuserOrder) => {
+const createOrderIntoDB = async (id: number, data: TuserOrder) => {
   if (await User.isUserExists(id)) {
     const query = { userId: id }
     const result = await User.updateOne(query, { $push: { orders: data } })
@@ -67,7 +67,7 @@ const createOrderIntoDB = async (id: string, data: TuserOrder) => {
   throw new Error('User Not Exist!')
 }
 
-const getOrderFromDB = async (id: string) => {
+const getOrderFromDB = async (id: number) => {
   if (await User.isUserExists(id)) {
     const result = await User.findOne({ userId: id }, { orders: 1 })
     return result
@@ -75,7 +75,7 @@ const getOrderFromDB = async (id: string) => {
   throw new Error('User Not Exist!')
 }
 
-const getOrderTotalPriceFromDB = async (id: string) => {
+const getOrderTotalPriceFromDB = async (id: number) => {
   if (await User.isUserExists(id)) {
     const result = await User.aggregate([
       { $match: { userId: id } },

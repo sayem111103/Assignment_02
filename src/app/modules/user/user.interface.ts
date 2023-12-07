@@ -17,7 +17,7 @@ export type TuserOrder = {
 }
 
 export type TUser = {
-  userId: string
+  userId: number
   username: string
   password: string
   fullName: TuserName
@@ -31,5 +31,5 @@ export type TUser = {
 }
 
 export interface UserModel extends Model<TUser> {
-  isUserExists(id: string): Promise<TUser | null>
+  isUserExists(id: number): Promise<TUser | null>
 }

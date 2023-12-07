@@ -18,10 +18,8 @@ export const UserOrderValidationSchema = z.object({
 })
 
 export const UserValidationSchema = z.object({
-  userId: z.string({ required_error: 'User ID is required' }),
-  username: z
-    .string({ required_error: 'Username is required' })
-    .max(10, { message: 'username character must be 2 character' }),
+  userId: z.number({ required_error: 'User ID is required' }),
+  username: z.string({ required_error: 'Username is required' }),
   password: z.string({ required_error: 'Password is required' }),
   fullName: UserNameValidationSchema,
   age: z.number({ required_error: 'Age is required' }),
@@ -51,10 +49,8 @@ const UserOrderUpdateValidationSchema = z.object({
 })
 
 export const UserUpdateValidationSchema = z.object({
-  userId: z.string().optional(),
-  username: z.optional(
-    z.string().max(10, { message: 'username character must be 2 character' }),
-  ),
+  userId: z.number().optional(),
+  username: z.optional(z.string()),
   password: z.optional(z.string()),
   fullName: z.optional(UserNameUpdateValidationSchema),
   age: z.optional(z.number()),
